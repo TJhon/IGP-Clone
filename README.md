@@ -7,9 +7,21 @@ The IGP Sismo App is a web application that provides access to earthquake data o
 ## Features
 
 - **Latest Earthquake**: Displays the most recent earthquake information similar to what is shown on the [IGP's last earthquake page](https://ultimosismo.igp.gob.pe/).
+
+![](./figs/page1.png)
+
 - **Date-specific Earthquake Map**: Shows a map of all earthquakes recorded on a specific date.
+
+![](./figs/page2.png)
+
 - **Date Range Filtering**: Allows users to filter earthquakes based on date ranges, view the earthquake map, and download datasets for the selected period.
+
+![](./figs/page3.png)
+
 - **Advanced Filtering**: Enables filtering earthquakes by magnitude, depth, location, in addition to date ranges. Users can visualize earthquake maps and download datasets as well.
+
+![](./figs/page4.png)
+
 
 ## Usage
 
