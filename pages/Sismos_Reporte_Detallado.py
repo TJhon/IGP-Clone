@@ -2,6 +2,8 @@ import streamlit as st, datetime, geopandas as gpd
 from shapely.geometry import Point
 from src.data import IGPData, today
 
+from componets.sidebar import sidebar
+
 st.set_page_config("Reporte Detallado")
 
 today_f = today.replace("-", "/")
@@ -103,3 +105,5 @@ st.download_button(
     file_name=f"igp_eartquake_{begin}_{end}.csv",
     mime="text/csv",
 )
+
+sidebar()

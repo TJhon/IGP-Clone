@@ -53,3 +53,8 @@ with st.spinner("Cargando Mapa"):
         file_name=f"igp_eartquake_{begin}_{end}.csv",
         mime="text/csv",
     )
+
+
+from componets.sidebar import sidebar
+
+sidebar()

@@ -1,6 +1,6 @@
 import streamlit as st, datetime
 from src.data import IGPData, today
-
+from componets.sidebar import sidebar
 
 st.set_page_config("Sismos Diarios")
 
@@ -35,3 +35,5 @@ with st.spinner("Cargando Mapa"):
         color="alert",
         zoom=3.8,
     )
+
+sidebar()
