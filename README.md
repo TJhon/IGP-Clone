@@ -1,4 +1,4 @@
-# IGP Sismo App
+# IGP Clone App
 
 ## Overview
 
