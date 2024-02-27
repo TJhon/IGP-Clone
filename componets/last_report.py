@@ -1,16 +1,24 @@
 import streamlit as st, pandas as pd
 
-from src.last_earthquake import last_report
+# from src.last_earthquake import last_report
 from src.data import alert_string
 
-values = last_report()
+# values = last_report()
 
 
-def last_report_view():
+def last_report_view(values):
 
     st.header(f"Ultimo Reporte: `{values['fecha_local']}`")
+    referencia = values["referencia"]
+    try:
+        ref, region = referencia.split("-")
+        st.markdown(
+            f"Referencia: {ref} - <strong>{region}</strong>", unsafe_allow_html=True
+        )
 
-    st.write(f"Referencia: {values['referencia']}")
+    except:
+        st.write(f"Referencia: {referencia}")
+
     color_alert = alert_string(values["magnitud"])
 
     col1, col2, col3 = st.columns(3)
