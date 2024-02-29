@@ -1,4 +1,5 @@
 from selenium import webdriver
+import time
 
 options = webdriver.ChromeOptions()
 options.add_argument('--headless')
@@ -8,5 +9,7 @@ options.binary_location = '/usr/bin/chromium-browser'
 
 driver = webdriver.Chrome(options=options)
 driver.get("https://ipg-clone.streamlit.app/")
+time.sleep(5)
+print("5 secs")
 print(driver.title)
 driver.quit()
