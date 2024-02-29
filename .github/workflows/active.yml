@@ -1,8 +1,8 @@
-name: Visitar Aplicación Streamlit
+name: show app
 
 on:
   schedule:
-    - cron: '20 19 * * *'  # Ejecutar todos los días a las 12:00 UTC
+    - cron: '22 19 * * *'  # Ejecutar todos los días a las 12:00 UTC
 
 jobs:
   ejecutar:
