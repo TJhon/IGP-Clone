@@ -2,7 +2,7 @@ name: show app
 
 on:
   schedule:
-    - cron: '22 19 * * *'  # Ejecutar todos los días a las 12:00 UTC
+    - cron: '23 19 * * *'  # Ejecutar todos los días a las 12:00 UTC
 
 jobs:
   ejecutar:
