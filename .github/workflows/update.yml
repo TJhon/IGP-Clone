@@ -1,4 +1,4 @@
-name: show app
+name: on branch update
 
 on:
   push:
