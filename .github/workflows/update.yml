@@ -2,7 +2,7 @@ name: keep ctive streamlit apps
 
 on:
   schedule:
-    - cron: '12 12 * * *'  # Ejecutar todos los días a las 12:00 UTC
+    - cron: '20 19 * * 2,4,6'  # Ejecutar todos los días a las 12:00 UTC
 
 jobs:
   ejecutar:
