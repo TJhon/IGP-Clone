@@ -56,7 +56,7 @@ class SismoDataDownloader:
 
         return dt_peru.strftime("%Y-%m-%d"), dt_peru.strftime("%H:%M:%S")
 
-    def descargar_datos(self, save_csv=False, csv_filename=None):
+    def descargar_datos(self, save_csv=False, csv_filename=None) -> pd.DataFrame:
         if save_csv:
             if csv_filename is None:
                 raise ("You need a csv filename")
@@ -89,5 +89,5 @@ class SismoDataDownloader:
 
 # Uso de la clase
 downloader = SismoDataDownloader(fecha_inicio="1960-01-01", fecha_fin="2024-10-19")
-data = downloader.descargar_datos(csv_filename="sismos.csv")
-print(data)
+data = downloader.descargar_datos(csv_filename="./data/all.csv")
+# print(data)
