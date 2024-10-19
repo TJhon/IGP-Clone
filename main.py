@@ -11,7 +11,7 @@ print(f"time api igp: {end_api_igp - begin }\n")
 
 
 raw_csv = (
-    "https://raw.githubusercontent.com/TJhon/IGP-Clone/refs/heads/refactor/data/all.csv"
+    "https://raw.githubusercontent.com/TJhon/IGP-Clone/refs/heads/testing/data/all.csv"
 )
 
 data = pd.read_csv(raw_csv)
