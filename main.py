@@ -1,7 +1,7 @@
 import time
 from igp.last_earthquake import SismoDataDownloader, pd
 
-begin = time.time()
+begin = time.time() 
 
 downloader = SismoDataDownloader(fecha_inicio="1960-01-01", fecha_fin="2024-10-19")
 
