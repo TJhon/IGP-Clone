@@ -24,4 +24,4 @@ jobs:
           pip install git+https://github.com/tjhon/sismodata.git@testing
 
       - name: Run script
-        run: python main.py
+        run: python workflows/historical.py

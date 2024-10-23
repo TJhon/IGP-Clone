@@ -8,11 +8,7 @@ setup(
     author_email="fr.jhonk@gmail.com",
     url="https://github.com/tjhon/sismodata",
     packages=find_packages(),
-    install_requires=[
-        "requests>=2.25.1",
-        "pandas>=1.1.5",
-        "openpyxl>=3.0.0",
-    ],
+    install_requires=["requests>=2.25.1", "pandas>=1.1.5", "openpyxl>=3.0.0", "pytz"],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
