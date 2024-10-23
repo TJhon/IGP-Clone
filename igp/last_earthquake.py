@@ -103,12 +103,6 @@ class SismoDataDownloader:
 # data.to_csv("./data/instrumental/instrumental_data.csv", index=False)
 # print(data)
 
-# intenta con la fecha actual (mensual), y reemplaza el anterior archivo
-# historical = SismoDataDownloader(
-#     fecha_inicio="1471-01-01",
-#     fecha_fin="1959-12-31",
-#     tipo_catalogo="Historico",
-# ).descargar_datos(csv_filename="./data/historical/historical_data.csv")
 
 # inst = pd.read_csv("./data/instrumental/instrumental_data.csv")
 # hist = pd.read_csv("./data/historical/historical_data.csv")
