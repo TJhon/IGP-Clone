@@ -63,13 +63,21 @@ class SismoDataDownloader:
         if csv_filename is not None:
             save_csv = True
 
+        # print(self.base_url)
+
         response = requests.get(self.base_url, params=self.params)
 
         excel_data = BytesIO(response.content)
 
         data = pd.read_excel(excel_data)
 
-        data.columns = ["fecha_utc", "hora_utc", "lat", "long", "prof_km", "mag_m"]
+        base_columns = ["fecha_utc", "hora_utc", "lat", "long", "prof_km", "mag_m"]
+
+        if self.params["tipoCatalogo"].lower() == "historico":
+            base_columns = base_columns + ["mag_ms", "mag_mw"]
+        data.columns = base_columns
+        data["type"] = self.params["tipoCatalogo"].lower()
+        # fecha UTC     hora UTC  latitud (º)  longitud (º)  profundidad (km)  magnitud (mb)  magnitud (Ms)  magnitud (Mw)
 
         data["fecha"], data["hora"] = zip(
             *data.apply(
@@ -88,6 +96,22 @@ class SismoDataDownloader:
 
 
 # Uso de la clase
-downloader = SismoDataDownloader(fecha_inicio="1960-01-01", fecha_fin="2024-10-19")
-data = downloader.descargar_datos(csv_filename="./data/all.csv")
+# downloader = SismoDataDownloader(fecha_inicio="1960-01-01", fecha_fin="2024-10-23")
+# data = downloader.descargar_datos(
+#     csv_filename="./data/instrumental/archive/23-10-2024.csv"
+# )
+# data.to_csv("./data/instrumental/instrumental_data.csv", index=False)
 # print(data)
+
+# intenta con la fecha actual (mensual), y reemplaza el anterior archivo
+# historical = SismoDataDownloader(
+#     fecha_inicio="1471-01-01",
+#     fecha_fin="1959-12-31",
+#     tipo_catalogo="Historico",
+# ).descargar_datos(csv_filename="./data/historical/historical_data.csv")
+
+# inst = pd.read_csv("./data/instrumental/instrumental_data.csv")
+# hist = pd.read_csv("./data/historical/historical_data.csv")
+
+# data = pd.concat([hist, inst], ignore_index=True)
+# data.to_csv("./data/all_data.csv", index=False)
