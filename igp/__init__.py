@@ -1,1 +1,1 @@
-from .last_earthquake import last, SismoDataDownloader
+from .sismos import last, SismoDataDownloader

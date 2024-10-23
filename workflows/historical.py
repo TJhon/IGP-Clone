@@ -2,11 +2,6 @@
 from igp import SismoDataDownloader
 from time_now import ymd, dmy
 
-import os
-
-a = os.listdir()
-
-print(a)
 historical = SismoDataDownloader(
     fecha_inicio="1471-01-01",
     fecha_fin="1959-12-31",

@@ -1,14 +1,15 @@
 import streamlit as st, pandas as pd
+from datetime import datetime
 
-# from src.last_earthquake import last_report
-from src.data import alert_string
-
-# values = last_report()
+# Cadena de fecha y hora
+fecha_hora_str = "2024-10-23T13:20:34.000Z"
 
 
 def last_report_view(values):
-
-    st.header(f"Ultimo Reporte: `{values['fecha_local']}`")
+    fecha_hora = datetime.strptime(values["fecha_hora"], "%Y-%m-%dT%H:%M:%S.%fZ")
+    fecha = fecha_hora.strftime("%Y-%m-%d")
+    hora = fecha_hora.strftime("%H:%M:%S")
+    st.header(f"Ultimo Reporte: `{fecha}` `{hora}`")
     referencia = values["referencia"]
     try:
         ref, region = referencia.split("-")
@@ -19,19 +20,23 @@ def last_report_view(values):
     except:
         st.write(f"Referencia: {referencia}")
 
-    color_alert = alert_string(values["magnitud"])
+    values["latitud"] = float(values["latitud"])
+    values["longitud"] = float(values["longitud"])
+
+    # color_alert = alert_string(values["magnitud"])
 
     col1, col2, col3 = st.columns(3)
 
     col2.metric("Profundidad", str(values["profundidad"]) + " Km")
-    col2.metric("Latitud", values["latitud"])
-    col3.metric("Hora", values["hora_local"])
+    col3.metric("Latitud", values["latitud"])
+    # col3.metric("Hora", hora)
     col3.metric("Longitud", values["longitud"])
 
-    col1.metric("Magnitud", str(values["magnitud"]) + " M")
+    col2.metric("Magnitud", str(values["magnitud"]) + " M")
+    alerta = values["alert"]
     col1.markdown(
         f"""
-    <span style="width:50px; height:50px; background-color:{color_alert}; border-radius:50%; display:inline-block;"></span>
+    <span style="width:50px; height:50px;  border-radius:50%; background-color: {alerta}; display:inline-block;"></span>
     """,
         unsafe_allow_html=True,
     )
@@ -41,14 +46,12 @@ def last_report_view(values):
         values_df[key] = [values[key]]
 
     last_report = pd.DataFrame(values_df)
-    last_report["alert"] = last_report["magnitud"].apply(alert_string)
 
     st.map(
         last_report.reset_index(),
         latitude="latitud",
         longitude="longitud",
         size=4000,
-        # color="#3198c4",
-        color="alert",
+        color=alerta,
         zoom=7,
     )

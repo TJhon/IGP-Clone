@@ -2,12 +2,15 @@ import requests
 import pandas as pd, time
 from datetime import datetime, timedelta
 from io import BytesIO
+from .utils import alert_string
 
 
 def last():
 
     data = requests.get("https://ultimosismo.igp.gob.pe/api/ultimo-sismo")
-    return data.json()
+    data = data.json()
+    data["alert"] = alert_string(data["magnitud"])
+    return data
 
 
 class SismoDataDownloader:
