@@ -10,6 +10,7 @@ def last():
     data = requests.get("https://ultimosismo.igp.gob.pe/api/ultimo-sismo")
     data = data.json()
     data["alert"] = alert_string(data["magnitud"])
+
     return data
 
 

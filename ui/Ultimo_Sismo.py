@@ -8,4 +8,5 @@ import streamlit as st
 st.set_page_config(page_title="IGP: Ultimo Reporte")
 sidebar.sidebar()
 
+
 last_report.last_report_view(last())

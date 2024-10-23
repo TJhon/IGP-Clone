@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="sismodata",
-    version="0.1.0",
+    version="0.1.1",
     description="Paquete para descargar y procesar datos de sismos desde el IGP de Perú",
     author="Jhon K. Flores Rojas",
     author_email="fr.jhonk@gmail.com",
