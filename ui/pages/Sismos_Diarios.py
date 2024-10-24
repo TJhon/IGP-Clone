@@ -13,12 +13,13 @@ when = st.date_input(
     format="DD-MM-YYYY",
     max_value=datetime.datetime.now(),
 )
+when1 = when - datetime.timedelta(days=1)
 when = when.strftime("%Y-%m-%d")
 
 
 with st.spinner("Loading"):
     data = SismoDataDownloader(
-        fecha_inicio=when,
+        fecha_inicio=when1.strftime("%Y-%m-%d"),
         fecha_fin=when,
         tipo_catalogo="Instrumental",
     ).descargar_datos()
