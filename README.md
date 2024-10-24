@@ -40,9 +40,8 @@ Feedback and contributions to improve this application are welcome. If you encou
 
 ## License
 
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
+This project is licensed under the Apache License 2.0
 
-Here’s a modified version of the change logs for the README in English:
 
 
 ### Change Logs
