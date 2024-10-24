@@ -1,3 +1,6 @@
 requests
 pandas
 openpyxl
+pytz
+streamlit
+git+https://github.com/tjhon/sismodata.git@testing
