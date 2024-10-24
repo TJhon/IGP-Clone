@@ -42,8 +42,14 @@ Feedback and contributions to improve this application are welcome. If you encou
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-# Change Logs
+Here’s a modified version of the change logs for the README in English:
 
-- 10/19/2024: Actualizacion a las nuevas formas de consulta
-  - API: ultimo sismo
-  - Data historica: diferente query
+
+### Change Logs
+
+- **10/19/2024:** Updated to the new query formats.
+  - **API:** Latest earthquake query.
+  - **Historical Data:** Modified query structure.
+
+- **10/24/2024:** Updated the UI with new features.
+
