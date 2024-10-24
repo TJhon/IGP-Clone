@@ -120,37 +120,3 @@ class IGPData:
         end = time.time()
         print(end - begin)
         return self
-
-
-# data-latitud
-# data-longitud
-# data-profundidad
-# data-intensidad
-# data-hora-local
-# data-fecha-local
-# data-referencia
-# data-magnitud
-
-# lastEarthquake
-# a = IGPData().download_data()
-# print(a.data)
-
-
-# var repAc = "ttps://www.igp.gob.pe/servicios/api-acelerometrica/ran/file/2022" + numrep + ".pdf";
-# $.ajax({
-#     url: repAc,
-#     type: 'HEAD',
-#     error: function () {
-#         document.getElementById("btn-ra").innerHTML = "<button disable class='btn btn-secondary disabled'> <i class='file pdf outline icon'></i> El reporte acelerométrico aún no está disponible, intente descargarlo más tarde</button>";
-#     },
-#     success: function () {
-#         document.getElementById("btn-ra").innerHTML = "<a target='_blank' href='https://intranet.igp.gob.pe/reportes-acelerometricos/2022" + numrep + ".pdf' class='btn btn-primary'>Descargar reporte acelerométrico</a>";
-#     }
-# });
-
-# $('.us-rs-info').hide();
-# var $boton = $(this);
-# $('.us-ra-info').toggle(500, function () {
-#     $boton.val($(this).is(':visible') ? 'Ocultar reporte acelerométrico' : 'Ver reporte acelerométrico');
-# });
-# e.preventDefault();

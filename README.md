@@ -22,7 +22,6 @@ The IGP Sismo App is a web application that provides access to earthquake data o
 
 ![](./figs/page4.png)
 
-
 ## Usage
 
 1. Visit the application's main page to view the latest earthquake information.
@@ -43,4 +42,14 @@ Feedback and contributions to improve this application are welcome. If you encou
 
 This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-## ScreenShots
+Here’s a modified version of the change logs for the README in English:
+
+
+### Change Logs
+
+- **10/19/2024:** Updated to the new query formats.
+  - **API:** Latest earthquake query.
+  - **Historical Data:** Modified query structure.
+
+- **10/24/2024:** Updated the UI with new features.
+

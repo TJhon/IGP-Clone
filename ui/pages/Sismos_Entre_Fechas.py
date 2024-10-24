@@ -1,32 +1,46 @@
 import streamlit as st, datetime
-from src.data import IGPData, today
+from igp import SismoDataDownloader
+from igp.utils import alert_string
+from components.sidebar import sidebar, filter_date_utm
+
+# import pandas as pd
 
 st.set_page_config("Reporte: Sismos Entre Fechas")
 
-today_f = today.replace("-", "/")
+
 st.title("Reportes de Sismos Por Fecha")
+
+now = datetime.datetime.now()
 
 col1, col2 = st.columns(2)
 begin = col1.date_input(
     "Fecha Inicial",
     format="DD-MM-YYYY",
-    value=datetime.datetime.now() - datetime.timedelta(days=7),
+    value=now - datetime.timedelta(days=7),
 )
-begin = begin.strftime("%d-%m-%Y")
+begin = begin.strftime("%Y-%m-%d")
 
 end = col2.date_input(
     "Fecha Final",
     format="DD-MM-YYYY",
-    max_value=datetime.datetime.now(),
+    max_value=now,
 )
-end = end.strftime("%d-%m-%Y")
+end = end.strftime("%Y-%m-%d")
 
 
 with st.spinner("Loading"):
-    today_data = IGPData(date=(begin, end)).download_data()
+    data = SismoDataDownloader(
+        fecha_inicio=begin,
+        fecha_fin=end,
+        tipo_catalogo="Instrumental",
+    ).descargar_datos()
+    data["alert"] = data["mag_m"].apply(alert_string)
 
-data = today_data.data
 
+# print(data["fecha"])
+
+
+data = filter_date_utm(data, begin, end)
 
 st.header(f"Total: {len(data)}")
 
@@ -40,9 +54,9 @@ with st.spinner("Cargando Mapa"):
 
     st.map(
         data,
-        latitude="latitude",
-        longitude="longitude",
-        size="depth_m",
+        latitude="lat",
+        longitude="long",
+        size="prof_km",
         color="alert",
         zoom=3.8,
     )
@@ -53,8 +67,4 @@ with st.spinner("Cargando Mapa"):
         file_name=f"igp_eartquake_{begin}_{end}.csv",
         mime="text/csv",
     )
-
-
-from componets.sidebar import sidebar
-
 sidebar()
