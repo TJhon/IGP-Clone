@@ -1,8 +1,9 @@
 import streamlit as st, datetime
 from igp import SismoDataDownloader
 from igp.utils import alert_string
-from components.sidebar import sidebar
+from components.sidebar import sidebar, filter_date_utm
 
+# import pandas as pd
 
 st.set_page_config("Reporte: Sismos Entre Fechas")
 
@@ -35,6 +36,11 @@ with st.spinner("Loading"):
     ).descargar_datos()
     data["alert"] = data["mag_m"].apply(alert_string)
 
+
+# print(data["fecha"])
+
+
+data = filter_date_utm(data, begin, end)
 
 st.header(f"Total: {len(data)}")
 

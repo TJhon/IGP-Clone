@@ -25,8 +25,13 @@ with st.spinner("Loading"):
     ).descargar_datos()
 
     data["alert"] = data["mag_m"].apply(alert_string)
+    data = data.query("fecha == @when")
 
+# st.write(data)
 st.header(f"Total: {len(data)}")
+if len(data) < 1:
+    st.warning("No hay datos para la fecha seleccionada")
+    st.stop()
 
 
 with st.spinner("Cargando Mapa"):

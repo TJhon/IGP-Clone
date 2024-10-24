@@ -3,4 +3,5 @@ pandas
 openpyxl
 pytz
 streamlit
+geopandas
 git+https://github.com/tjhon/sismodata.git@testing

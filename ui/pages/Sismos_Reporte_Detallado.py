@@ -3,7 +3,7 @@ from shapely.geometry import Point
 from igp import SismoDataDownloader
 from igp.utils import alert_string
 
-from components.sidebar import sidebar
+from components.sidebar import sidebar, filter_date_utm
 
 st.set_page_config("Reporte Detallado")
 
@@ -26,9 +26,9 @@ col1, col2 = st.columns(2)
 with col1:
 
     st.header("Filtros")
-    st.subheader("Por Regiones")
+    # st.subheader("Por Regiones")
     regions_filter = st.multiselect("Seleccione las regiones", regiones, default=None)
-    st.subheader("Por Fecha")
+    # st.subheader("Por Fecha")
     dcol1, dcol2 = st.columns(2)
     begin = dcol1.date_input(
         "Fecha Inicial",
@@ -44,14 +44,14 @@ with col1:
     )
     end = end.strftime(date_format)
 
-    st.subheader("Por Magnitud")
+    # st.subheader("Por Magnitud")
 
     mcol1, mcol2 = st.columns(2)
     min_m, max_m = st.select_slider(
         "Magnitud", options=list(range(1, 10)), value=(1, 9)
     )
 
-    st.subheader("Por Profundidad")
+    # st.subheader("Por Profundidad")
     min_p, max_p = st.select_slider(
         "Profundidad", options=list(range(1, 901)), value=(1, 900)
     )
@@ -75,6 +75,7 @@ with col2:
             st.stop()
 
         data["alert"] = data["mag_m"].apply(alert_string)
+        data = filter_date_utm(data, begin, end)
 
     geometry = [Point(lon, lat) for lon, lat in zip(data["long"], data["lat"])]
     if len(regions_filter) > 0:
@@ -114,7 +115,7 @@ def convert_df(df):
 csv = convert_df(data)
 
 st.download_button(
-    "Download data as CSV",
+    "Descargar datos como csv",
     data=csv,
     file_name=f"igp_eartquake_{begin}_{end}.csv",
     mime="text/csv",
