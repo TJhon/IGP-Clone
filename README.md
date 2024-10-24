@@ -1,4 +1,4 @@
-# [IGP Clone App](https://ipg-clone.streamlit.app/)
+# [IGP Clone App](https://perusismosdata.streamlit.app)
 
 ## Overview
 
@@ -37,7 +37,7 @@ The IGP Clone App is not affiliated with the Instituto de Geofísica del Peru (I
 
 ## Feedback and Contributions
 
-Feedback and contributions to improve this application are welcome. If you encounter any issues or have suggestions for enhancements, please feel free to [submit an issue](https://github.com/tjhon/IGP-clone/issues) or [create a pull request](https://github.com/tjhon/IGP-clone/pulls) on GitHub.
+Feedback and contributions to improve this application are welcome. If you encounter any issues or have suggestions for enhancements, please feel free to [submit an issue](https://github.com/tjhon/IGP-clone/issues) or [create a pull request](https://github.com/tjhon/sismodata/pulls) on GitHub.
 
 ## License
 
